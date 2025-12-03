@@ -11,7 +11,8 @@ export async function GET() {
     version: "vNext",
     title: "Chibi Purple Mini App",
     description: "Drama gambar ini judul mini app Chibi Purple Name",
-    image: `${base}/chibi1.png`,
+    image: "https://chibipurple-b9wq.vercel.app/chibi.png",
+    
     buttons: [
       {
         label: "Open",
