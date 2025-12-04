@@ -4,44 +4,43 @@ import { NextResponse } from "next/server";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const base = process.env.NEXT_PUBLIC_BASE_URL || "https://chibipurple-b9wq.vercel.app";
+  const base = "https://chibipurple-b9wq-2n8z67z9z-yazumichans-projects.vercel.app";
 
   return NextResponse.json({
-    type: "frame",
     version: "vNext",
+    image: `${base}/chibi.png`,
     title: "Chibi Purple Mini App",
-    description: "Drama gambar ini judul mini app Chibi Purple Name",
-    image: "https://chibipurple-b9wq.vercel.app/chibi.png",
-    
+    description: "Mini app Chibi Purple di Farcaster.",
     buttons: [
       {
-        label: "Open",
-        action: "open",
+        label: "Open App",
+        action: "link",
         target: base
       },
       {
         label: "Mint",
-        action: "mint",
-        mint_address: "0x8A3De524F153282D66150c46CD5191D24a6aEdC1",
-        mint_price: "0.0001"
+        action: "post"
       }
     ],
-    post_url: `${base}/api/frame/post`
+    post_url: `${base}/api/frame`
   });
 }
+
 export async function POST() {
-  return new Response(
-    `
-      <html>
-        <head>
-          <meta property="fc:frame" content="vNext" />
-          <meta property="fc:frame:image" content="https://your-domain.vercel.app/chibi.png" />
-          <meta property="fc:frame:button:1" content="Done!" />
-        </head>
-      </html>
-    `,
-    {
-      headers: { "Content-Type": "text/html" }
-    }
-  );
+  const base = "https://chibipurple-b9wq-2n8z67z9z-yazumichans-projects.vercel.app";
+
+  return NextResponse.json({
+    version: "vNext",
+    image: `${base}/chibi.png`,
+    title: "Mint Success!",
+    description: "Terima kasih sudah mint!",
+    buttons: [
+      {
+        label: "Back",
+        action: "link",
+        target: base
+      }
+    ]
+  });
 }
+
