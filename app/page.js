@@ -1,3 +1,13 @@
+import MintButton from "../components/MintButton";
+
+export default function Page() {
+  return (
+    <div>
+      <h1>Chibi Purple Miniapp</h1>
+      <MintButton />
+    </div>
+  );
+}
 export const dynamic = "force-static";
 
 export const metadata = {
