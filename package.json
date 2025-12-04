@@ -13,3 +13,5 @@
     "react-dom": "18.2.0"
   }
 }
+"viem": "^2.7.15",
+"@farcaster/auth-kit": "^0.7.0"
