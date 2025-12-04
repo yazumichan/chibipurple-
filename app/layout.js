@@ -11,3 +11,6 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+export const metadata = {
+  metadataBase: new URL("https://chibipurple-b9wq-2n8z67z9z-yazumichans-projects.vercel.app"),
+}
