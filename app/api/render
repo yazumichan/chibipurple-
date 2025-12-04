@@ -1,0 +1,35 @@
+import { ImageResponse } from "next/og";
+
+export const runtime = "edge";
+
+export async function GET(req) {
+  const { searchParams } = new URL(req.url);
+  const name = searchParams.get("name") || "Anon";
+
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: "600px",
+          height: "600px",
+          backgroundImage: `url(https://your-chibi-image.png)`,
+          backgroundSize: "cover",
+          fontSize: 40,
+          fontWeight: "bold",
+          color: "white",
+          position: "relative",
+        }}
+      >
+        <div style={{
+          position: "absolute",
+          top: "350px",
+          left: "50%",
+          transform: "translateX(-50%)"
+        }}>
+          {name}
+        </div>
+      </div>
+    ),
+    { width: 600, height: 600 }
+  );
+}
