@@ -29,3 +29,19 @@ export async function GET() {
     post_url: `${base}/api/frame/post`
   });
 }
+export async function POST() {
+  return new Response(
+    `
+      <html>
+        <head>
+          <meta property="fc:frame" content="vNext" />
+          <meta property="fc:frame:image" content="https://your-domain.vercel.app/chibi.png" />
+          <meta property="fc:frame:button:1" content="Done!" />
+        </head>
+      </html>
+    `,
+    {
+      headers: { "Content-Type": "text/html" }
+    }
+  );
+}
