@@ -1,5 +1,5 @@
 // app/layout.js
-export const metadata = new URL("https://chibipurple-b9wq-2n8z67z9z-yazumichans-projects.vercel.app"),
+export const metadata = {
   }
   title: "Chibi Purple",
   description: "Mini app Chibi Purple Frame"
