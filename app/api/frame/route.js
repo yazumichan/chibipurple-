@@ -1,59 +1,34 @@
-// app/api/frame/route.js
-import { NextResponse } from "next/server";
+// app/api/frame/route.jsexport const dynamic = "force-static";
 
-export const dynamic = "force-dynamic";
+export default function Frame() {
+  return (
+    <html>
+      <head>
+        {/* FRAME META TAGS */}
+        <meta property="fc:frame" content="vNext" />
+        <meta property="fc:frame:image" content="https://your-domain.vercel.app/chibi.png" />
+        <meta property="fc:frame:image:aspect_ratio" content="1:1" />
 
-const base = "https://chibipurple-b9wq-2n8z67z9z-yazumichans-projects.vercel.app";
+        <meta property="fc:frame:button:1" content="Mint Chibi" />
+        <meta property="fc:frame:button:1:action" content="post" />
+        <meta property="fc:frame:post_url" content="https://your-domain.vercel.app/api/mint" />
+      </head>
 
-export async function GET() {
-  return NextResponse.json(
-    {
-      version: "vNext",
-      image: `${base}/chibi.png`,
-      title: "Chibi Purple Mini App",
-      description: "Mini app Chibi Purple di Farcaster.",
-      buttons: [
-        {
-          label: "Open App",
-          action: "link",
-          target: base
-        },
-        {
-          label: "Mint",
-          action: "post"
-        }
-      ],
-      post_url: `${base}/api/frame`
-    },
-    {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
-      }
-    }
+      <body
+        style={{
+          background: "#d9b3ff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "100vh",
+        }}
+      >
+        <img
+          src="/chibi.png"
+          alt="Chibi Purple"
+          style={{ width: "300px", borderRadius: "20px" }}
+        />
+      </body>
+    </html>
   );
-}
-
-export async function POST() {
-  return NextResponse.json(
-    {
-      version: "vNext",
-      image: `${base}/chibi.png`,
-      title: "Mint Success!",
-      description: "Thank you for the mint!",
-      buttons: [
-        {
-          label: "Back",
-          action: "link",
-          target: base
-        }
-      ]
-    },
-    {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
-      }
     }
-  );
-}
